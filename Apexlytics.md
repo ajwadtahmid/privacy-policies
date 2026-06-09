@@ -1,9 +1,11 @@
 # Privacy Policy — Apexlytics
 
-**Developer:** Ajwad Tahmid
-**Contact:** contact@ajwadtahmid.com
-**Last updated:** June 9, 2026
-**App:** Apexlytics (`com.ajwadtahmid.apexlytics`)
+| | |
+|---|---|
+| **Developer** | Ajwad Tahmid |
+| **Contact** | contact@ajwadtahmid.com |
+| **Last updated** | June 9, 2026 |
+| **App** | Apexlytics (`com.ajwadtahmid.apexlytics`) |
 
 ---
 
@@ -28,7 +30,7 @@ Sentry automatically sends a report containing:
 - App version
 - A snapshot of app state at the time of the error
 
-This data is used solely to identify and fix bugs. It is not sold or shared with any
+Data is transmitted to Sentry via encrypted HTTPS connection. This data is used solely to identify and fix bugs. It is not sold or shared with any
 third party beyond Sentry's infrastructure.
 
 ### API Requests
