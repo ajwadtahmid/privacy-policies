@@ -3,7 +3,7 @@
 **Developer:** Ajwad Tahmid
 **Contact:** contact@ajwadtahmid.com
 **Last updated:** June 9, 2026
-**App:** Apexlytics (`com.ajwadtahmid.unofficialapexcompanion`)
+**App:** Apexlytics (`com.ajwadtahmid.apexlytics`)
 
 ---
 
