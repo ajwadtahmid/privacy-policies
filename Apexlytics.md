@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Developer** | Ajwad Tahmid |
-| **Contact** | contact@ajwadtahmid.com |
+| **Contact** | support@ajwadtahmid.com |
 | **Last updated** | June 9, 2026 |
 | **App** | Apexlytics (`com.ajwadtahmid.apexlytics`) |
 
@@ -115,5 +115,5 @@ Continued use of the app after changes constitutes acceptance of the updated pol
 
 For any privacy-related questions or requests:
 
-**Email:** contact@ajwadtahmid.com
+**Email:** support@ajwadtahmid.com
 **Privacy policies index:** https://ajwadtahmid.github.io/privacy-policies/

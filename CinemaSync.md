@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Developer** | Ajwad Tahmid |
-| **Contact** | contact@ajwadtahmid.com |
+| **Contact** | support@ajwadtahmid.com |
 | **Last updated** | June 9, 2026 |
 | **App** | CinemaSync (`com.ajwadtahmid.cinema_sync`) |
 
@@ -145,7 +145,7 @@ CinemaSync provides built-in tools for your privacy rights:
 
 If you need to exercise a privacy right that is not covered by the in-app tools
 (such as requesting a data correction or raising a concern), contact us at
-contact@ajwadtahmid.com and we will respond within 30 days.
+support@ajwadtahmid.com and we will respond within 30 days.
 
 ---
 
@@ -181,5 +181,5 @@ Continued use of the app after changes constitutes acceptance of the updated pol
 
 For any privacy-related questions or requests:
 
-**Email:** contact@ajwadtahmid.com  
+**Email:** support@ajwadtahmid.com  
 **Privacy policies index:** https://ajwadtahmid.github.io/privacy-policies/
