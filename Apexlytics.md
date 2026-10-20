@@ -4,7 +4,7 @@
 |---|---|
 | **Developer** | Ajwad Tahmid |
 | **Contact** | support@ajwadtahmid.com |
-| **Last updated** | October 3, 2026 |
+| **Last updated** | October 18, 2026 |
 | **App** | Apexlytics (`com.ajwadtahmid.apexlytics`) |
 
 ---
@@ -75,12 +75,41 @@ basis.
 
 ### Backups You Export
 The backup feature creates a file that can contain your saved player names and IDs,
-favourites, and match history. The app never uploads it. On Android and iOS the file is
-handed to your device's share sheet, and you choose where it goes (for example Files or
-a cloud drive you use); the app keeps a temporary copy only until the share finishes,
-and removes it shortly afterwards (on Android this can take up to about ten minutes).
-On desktop it is written to a folder you choose. Once you save it somewhere, it is
-under that location's own privacy rules, not this app's.
+favourites, and match history. The app never uploads it. On Android the system "Save as"
+screen opens and you choose where the file is saved; the app keeps no copy. On iOS the
+file is handed to your device's share sheet, and you choose where it goes (for example
+Files or a cloud drive you use); the app keeps a temporary copy only until the share
+finishes, then removes it. On desktop it is written to a folder you choose. Once you
+save it somewhere, it is under that location's own privacy rules, not this app's.
+
+### Bug Reports You Send
+Settings has "Report a bug (GitHub)" and "Report a bug (Email)". Each opens a message
+that the app has filled in for you, which you can read and edit before anything is sent.
+Nothing is sent unless you choose to send it, and the app itself uploads nothing: the
+message opens in your browser or email app.
+
+The message contains:
+- The app version, your operating system and its version, your device's language and
+  time zone offset
+- Whether notifications are allowed, which map alerts are on, and whether background
+  refresh is available and how its last run went
+- How many player profiles you have saved and their platforms (never their names or IDs)
+- Your default tab, stats refresh interval and keep-screen-on setting
+- How many games are saved and how much space the app's saved data uses, and when you
+  last made a backup
+- The most recent lines of the app's activity log, as many as fit in the message
+
+The activity log is held in the device's memory only (the latest 500 lines) and is gone
+when the app closes. Before it is placed in a message, the app removes player IDs, your
+saved player names and your favourites' names, email addresses, the account name inside
+file paths, and the values of web-address parameters that carry a player or a key. Check
+the message before you send it, because the app cannot catch everything you type into it
+yourself.
+
+A GitHub report is a public issue on the project's page, visible to anyone, and is
+under GitHub's privacy policy. An email report goes to the support address below and
+is under your email provider's privacy policy. The developer reads reports only to fix
+bugs and does not share them.
 
 ### Data Stored On Your Device
 The app stores the following **locally on your device only**, and never uploads it:
@@ -88,11 +117,17 @@ The app stores the following **locally on your device only**, and never uploads 
 - Your saved player profiles (public name, ID, and platform) and favourite players
 - Match history and rank-points history it records for those players over time
 - Recently fetched game data, kept so the app works offline
+- When you last made a backup, used for the backup reminder in Settings (it is not
+  included in backups)
 
-This data stays until you use "Clear all data" in Settings or delete the app. On iOS,
+This data stays until you clear it in Settings ("Clear data" can clear just the saved
+responses, just your profiles and favourites, or everything) or delete the app. On iOS,
 your device's own iCloud or computer backups include app data by default, so this data
 can be in those backups; you can turn that off for individual apps in your device's
-backup settings. Android excludes the app from device backups.
+backup settings. Android excludes the app from cloud and computer backups. On some
+phones, Android's device-to-device transfer (setting up a new phone from an old one)
+may still copy the app's data, including profiles and match history, to your new phone;
+it goes only to your own new device.
 
 ---
 
@@ -119,6 +154,7 @@ device. No notification content is transmitted to any server.
 |---|---|---|
 | Sentry (sentry.io) | Crash and error reporting | [sentry.io/privacy](https://sentry.io/privacy) |
 | Apple App Store / Google Play | Checking whether a newer version of the app is available | [apple.com/legal/privacy](https://www.apple.com/legal/privacy/) / [policies.google.com/privacy](https://policies.google.com/privacy) |
+| GitHub / your email provider | Only if you choose to send a bug report (see "Bug Reports You Send") | [docs.github.com/site-policy/privacy-policies](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) / your provider's own |
 | Apex Legends Status (apexlegendsstatus.com) | Source of the game data the proxy fetches, and of a few images the app loads directly | [apexlegendsstatus.com](https://apexlegendsstatus.com) |
 
 On iOS and Android, the app checks its own App Store or Google Play listing directly from
@@ -149,6 +185,8 @@ No advertising SDKs, analytics platforms, or social login services are used in t
 | Fetched match history (temporary copy) | Developer proxy server | Up to 3 hours |
 | Recent stats lookups (temporary copy) | Developer proxy server | About 1 minute |
 | Preferences, profiles, match and rank history, cached game data | Your device only | Until you clear it in Settings or delete the app (iOS device backups may also hold a copy) |
+| Recent activity log (used for bug reports) | Your device's memory only | Latest 500 lines, gone when the app closes |
+| Bug reports you send | GitHub (public issue) or the developer's support email | Until the issue is closed and deleted, or the email is deleted; the developer will delete one on request |
 
 ---
 
