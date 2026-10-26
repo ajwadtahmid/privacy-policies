@@ -186,7 +186,7 @@ No advertising SDKs, analytics platforms, or social login services are used in t
 | Recent stats lookups (temporary copy) | Developer proxy server | About 1 minute |
 | Preferences, profiles, match and rank history, cached game data | Your device only | Until you clear it in Settings or delete the app (iOS device backups may also hold a copy) |
 | Recent activity log (used for bug reports) | Your device's memory only | Latest 500 lines, gone when the app closes |
-| Bug reports you send | GitHub (public issue) or the developer's support email | Until the issue is closed and deleted, or the email is deleted; the developer will delete one on request |
+| Bug reports you send | GitHub (public issue) or the developer's support email | Used for diagnostics only; deleted on request |
 
 ---
 

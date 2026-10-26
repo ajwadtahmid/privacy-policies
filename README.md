@@ -8,3 +8,4 @@ Collection of privacy policies for apps developed by Ajwad Tahmid.
 - [BacklogForge](./BacklogForge.md) — Video game backlog tracking with Steam integration
 - [CinemaSync](./CinemaSync.md) — Movie and TV show tracking with buddy feature
 - [Crier Plus](./Crier-Plus.md) — iOS reminder app with text-to-speech
+- [Heisenbudget](./Heisenbudget.md) — Offline personal expense and income tracker
