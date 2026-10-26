@@ -42,7 +42,7 @@ public game library. Standard server logs may record:
 - Request timestamps
 - Steam API requests made on your behalf
 
-Your Steam credentials are never stored by this app. Steam login is handled entirely
+Your Steam ID is stored temporarily. Your Steam credentials are never stored by this app. Steam login is handled entirely
 through Steam's own authentication flow. This data is not linked to your identity beyond
 your Steam ID, not shared with third parties, and server logs are deleted on a rolling
 30-day basis.

@@ -16,7 +16,7 @@ works completely offline: it does not require an account, does not connect to th
 internet, and does not collect personal information of any kind. Everything you enter
 stays on your phone.
 
-Heisenbudget is not affiliated with or endorsed by any TV show or its owners.
+Heisenbudget is not affiliated with or endorsed by Breaking Bad, Better Call Saul, or their owners.
 
 ---
 
