@@ -78,9 +78,12 @@ backup. It is only a card inside the app: Heisenbudget sends no notifications an
 for no permission. You can postpone it or turn it off in the app, and these choices are
 kept only on your phone (they are not part of a backup file).
 
-Temporary source files and, on Android, native sharing attachments are kept in private
-cache with distinct names so a new export does not invalidate an earlier one. They
-expire after about ten minutes while the app runs. Expired files are also cleaned on
+Temporary source files are kept in private cache with distinct names, so a new export
+does not overwrite an earlier one. On Android, the sharing component also makes its own
+copy of each shared file in private cache. It removes its earlier copies when you start
+another share, so an app that is still reading an earlier share (a cloud upload, for
+example) can lose access to it if you share again straight away. Copies expire after
+about ten minutes while the app runs. Expired files are also cleaned on
 launch or resume; closing the app can delay cleanup until it runs again. Both erase
 paths attempt to clear fresh copies too. Cleanup can fail because of storage or platform
 errors; **Erase everything** reports unfinished cleanup rather than claiming success.
