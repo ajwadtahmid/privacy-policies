@@ -1,185 +1,118 @@
-# Privacy Policy — CinemaSync
+# CinemaSync Privacy Policy
 
 | | |
 |---|---|
 | **Developer** | Ajwad Tahmid |
 | **Contact** | support@ajwadtahmid.com |
-| **Last updated** | June 9, 2026 |
-| **App** | CinemaSync (`com.ajwadtahmid.cinema_sync`) |
+| **Last updated** | November 17, 2026 |
+| **Applies to** | CinemaSync 1.0 for Android and iOS |
 
----
+CinemaSync is an independent app for keeping track of the films and shows you watch.
+It is not affiliated with or endorsed by The Movie Database (TMDB), JustWatch, Apple or Google.
 
-## Overview
+## The short version
 
-CinemaSync is an independently developed app for tracking movies and TV shows you have
-watched, rating them, and discovering new titles to watch with a buddy. It is not
-affiliated with or endorsed by The Movie Database (TMDB), Apple, or Google.
+- **No account.** There is nothing to sign up for, and the developer runs no server that holds your library.
+- **Your library stays on your phone.** Your watch status, ratings, dates, notes, lists and settings are stored on your device only.
+- **No analytics, no crash reporting, no advertising, no tracking.** The app contains none of these.
+- **The app talks to the internet only to look up films and shows** and to show their artwork. What those requests reveal is listed below.
+- **You control your data.** You can export it, restore it, or delete it all from inside the app.
 
-An account is required to use the app. Sign-in is via a one-time email code — no
-password is created or stored.
+## What is stored on your device
 
-This policy describes what data is collected, where it is stored, and what rights
-you have over it.
+All of this lives in the app's private storage and is never sent to the developer.
 
----
-
-## Data Collected and Why
-
-### Account Data
-When you create an account, the following is stored on our servers (Supabase):
-
-| Data | Purpose |
+| What | Details |
 |---|---|
-| Email address | Sign-in only. Used to send your one-time login code. |
-| User ID (UUID) | Internal identifier that links your data together. |
-| Display name | Optional. Shown to your buddy in the pairing feature. |
-| Account creation date | Account management. |
+| Your library | Titles you add, with status (watchlist, watching, watched, dropped), rating, favourite, private notes, the title and year, and the dates you watched. |
+| Episode progress | Which episodes of a show you have marked as watched. |
+| Lists | Your custom lists, their titles and any notes you write on items. |
+| Dismissed suggestions | Titles you chose never to see again, or to skip for a while. |
+| Settings | Your region, the streaming services you chose, view and sort choices, the language, backup reminder preferences, and an optional custom proxy address. |
+| Recent searches | Your last 10 search terms, which you can clear. |
+| Saved film and show details | Titles, descriptions, cast, genres, posters' addresses and streaming availability fetched from TMDB, so pages work offline. These are refreshed or deleted within 6 months of being fetched. |
+| Artwork | Posters and backdrops, saved on disk for up to 30 days and capped at about 600 files. |
+| Internal safety copies | Before a restore, an import or an undo, the app makes a copy of its own database in its private folder and keeps the six most recent. They are never uploaded. |
+| Import staging | While you import a Letterboxd or IMDb file, the rows from the file are held on the device until the import is finished, discarded or deleted. |
 
-Your email address is handled by Supabase's authentication service. It is not used
-for marketing and is never shared with third parties beyond what is necessary to
-deliver the login code.
+The database is protected by your phone's app sandbox and, if you use one, your screen lock and device encryption. CinemaSync does not add its own encryption on top. The app stores no passwords, access tokens or other secrets.
 
-### Watch History & Ratings
-When you mark a title as watched or add a rating, the following is stored:
+## What leaves your device
 
-- **On your device** (local SQLite database): TMDB title ID, media type (movie/TV),
-  your rating (optional, 0.5–10 scale), and the date you watched it.
-- **On our servers** (Supabase): The same data, synced to your account so it persists
-  across devices and restores after reinstall.
+CinemaSync contacts only the places below, and only when you use a feature that needs them.
 
-The TMDB catalog itself (title names, posters, descriptions) is never stored on our
-servers. Only your own records keyed by TMDB's numeric IDs are stored.
+### 1. The catalog proxy (finding titles)
 
-### Lists (Watch Later & Custom Lists)
-List names, list items (TMDB IDs + media types), optional per-item notes you write,
-and sort preferences are stored both on your device and synced to our servers.
+Searching, opening a title or person, Discover, For You, streaming availability, and matching titles during an import all fetch data about films and shows. These requests go to a small proxy operated by the developer on Cloudflare Workers, which adds the credential needed to ask TMDB and passes the answer back.
 
-### Swipes & Matches (Buddy Feature)
-When you use the pairing (buddy) feature:
+The proxy receives:
+- your **IP address**, as every internet service does, while the request is in transit;
+- the **request itself**: for example a search term, a title or person number, a genre, your chosen region code when listing streaming services, and the app language;
+- during an **import**, the **title text, release year or IMDb id** of each row in your file, one request per distinct title.
 
-- A **pairing record** is created linking your account to your buddy's, along with
-  any genre/year/runtime filters you set together.
-- Your **swipe decisions** (right/left/ignore on titles) are stored per pairing.
-- **Matched titles** (both users swiped right) are stored and shown in a shared list.
-- Swipe data is used solely to compute matches and is not used for any other purpose.
+The proxy does **not** receive your library, ratings, watch dates, notes, reviews, list names or any identifier of you or your device. It sets no cookies. Its configuration has logging and storage turned off and it keeps nothing, so nothing is available for the developer to look up afterwards. Cloudflare, as the company that runs the network, handles the IP address in order to deliver the request, and may apply network-level abuse protection such as rate limiting that it evaluates itself; the developer does not store its results. See Cloudflare's privacy policy.
 
-### Push Notification Tokens
-If you grant notification permission, your device's FCM (Firebase Cloud Messaging)
-token is stored on our servers, linked to your account. This token is used only to
-deliver "It's a match!" and pairing-related push notifications. It is not used for
-advertising or shared with third parties beyond Firebase's infrastructure.
+The proxy forwards to TMDB **without** your IP address or any information about your device. TMDB sees the proxy, and the catalog query.
 
-### TMDB Account Connection (Optional Import)
-If you choose to connect your TMDB account to import your existing ratings and
-watchlist, your TMDB access token is stored **on your device only** in the operating
-system's secure keychain (iOS Keychain / Android Keystore). It is never transmitted to
-or stored on our servers. The import is a one-time read operation — nothing is written
-back to your TMDB account.
+You can point the app at a different proxy under Settings, Advanced. If you do, whoever runs that proxy receives the requests described here, and this policy does not cover them.
 
-### Crash & Error Reports
-Collected via **Firebase Crashlytics** (Google). When the app crashes or encounters
-an unhandled error, Crashlytics automatically sends a report containing:
+### 2. TMDB's image server (artwork)
 
-- Device model and OS version
-- App version
-- A stack trace and app state snapshot at the time of the error
+Posters, backdrops and logos are loaded **directly from TMDB's image server** (`image.tmdb.org`). It can see your **IP address** and **which images are requested**, which can reveal which titles you looked at. The app asks for the smallest size that fits and saves the images for up to 30 days. See TMDB's privacy policy.
 
-This data is used solely to identify and fix bugs. It is not used for advertising or
-sold. See Google's privacy policy for how Firebase handles this data.
+### 3. YouTube (trailers)
 
-### Local App Preferences
-The following preferences are stored **on your device only** and are never transmitted
-to any server:
+Nothing contacts YouTube until you tap a trailer. The trailer then opens in the YouTube app or your browser, where YouTube's and Google's terms and privacy policy apply. CinemaSync embeds no player and loads no YouTube thumbnails.
 
-| Preference | What is stored |
-|---|---|
-| Theme | Light / dark / system |
-| Watch provider region | Your selected streaming region (e.g. "US") |
-| Recent searches | Last few search queries, for convenience |
-| Episode progress | Which episodes you have marked watched per TV season |
-| Avatar colour | Your chosen profile colour |
-| Onboarding status | Whether you have seen the intro screen |
+### 4. Files you choose
 
----
+When you export a backup or an import report, the app hands the file to your phone's save or share sheet. **You choose where it goes**, and the app keeps no hidden copy. When you restore or import, you choose the file in your phone's file picker and the app reads only that file. CinemaSync asks for no storage permission.
 
-## Third-Party Services
+### Where streaming information comes from
 
-| Service | Purpose | Their Privacy Policy |
-|---|---|---|
-| Supabase (supabase.com) | Account, sync, and backend | [supabase.com/privacy](https://supabase.com/privacy) |
-| Firebase Crashlytics (Google) | Crash and error reporting | [firebase.google.com/support/privacy](https://firebase.google.com/support/privacy) |
-| Firebase Cloud Messaging (Google) | Push notifications | [firebase.google.com/support/privacy](https://firebase.google.com/support/privacy) |
-| The Movie Database (TMDB) | Movie and TV metadata | [themoviedb.org/privacy-policy](https://www.themoviedb.org/privacy-policy) |
+Streaming availability is supplied through TMDB by JustWatch. CinemaSync does not receive or share any information about you with JustWatch.
 
-TMDB API requests are routed through a developer-operated proxy (Supabase Edge
-Function) so that the TMDB API key is never exposed in the app. Standard server logs
-on this proxy may record your IP address and request timestamps; these logs are not
-linked to your identity and are deleted on a rolling 30-day basis.
+### What CinemaSync does not do
 
-No advertising SDKs or third-party analytics platforms are used in this app.
+- It does not collect analytics, usage statistics or crash reports, and contains no advertising or tracking software.
+- It does not create accounts, profiles or user identifiers.
+- It does not use your location, contacts, camera, microphone or photos.
+- It does not use your data, or TMDB's data, to train or run machine learning or AI models. Suggestions in For You are a fixed scoring rule on your own library and the titles' genres, cast and ratings, calculated on your phone.
+- It does not sell or share your data, because the developer never has it.
 
----
+## Permissions
 
-## Data Retention
+The app requests network access, and nothing else.
 
-| Data | Stored by | Retention |
-|---|---|---|
-| Account & watch history | Supabase (developer) | Until you delete your account |
-| Crash reports | Firebase Crashlytics | 90 days |
-| TMDB proxy server logs | Developer | 30 days (rolling) |
-| TMDB access token | Your device's secure keychain | Until you disconnect or delete the app |
-| Local preferences & cache | Your device only | Until you delete the app |
+## Backups you make, and your phone's backups
 
----
+A CinemaSync backup file is **plain text** and includes your private notes. Keep it somewhere you trust. It never contains secrets and it is never created without you asking.
 
-## Your Rights
+Your phone's own backup service (iCloud, or Google's backup on Android) may include the app's data, including your library, if you have device backup turned on. That is controlled in your system settings, and Apple's or Google's privacy policy applies to it.
 
-CinemaSync provides built-in tools for your privacy rights:
+## Your choices and rights
 
-- **Export your data** — Profile → Your data → Export my data. Downloads a JSON
-  file of your full account data (watch history, ratings, lists, matches).
-- **Delete your account** — Profile → Danger zone → Delete my account. Permanently
-  and irreversibly deletes your account and all associated data from our servers.
-  This cannot be undone. Local data on your device is cleared when you uninstall the
-  app.
+Because the developer holds none of your data, there is nothing on the developer's side to access, correct or delete. You can act on everything yourself:
 
-If you need to exercise a privacy right that is not covered by the in-app tools
-(such as requesting a data correction or raising a concern), contact us at
-support@ajwadtahmid.com and we will respond within 30 days.
+- **See and take your data:** Settings, Backup and restore, Export backup.
+- **Clear recent searches:** in the search screen.
+- **Delete everything:** Settings, Backup and restore, Delete all local data. It lists what goes, offers a backup first, and needs you to type a confirmation. It removes your library, lists, settings, saved details, artwork, import staging and internal safety copies from the device. It changes nothing at TMDB.
+- **Uninstalling the app** removes its data from the device. Backup files you saved and any device backups are kept by you or your phone provider until you delete them.
 
----
-
-## Data Security
-
-All data in transit between the app and our servers is encrypted via HTTPS/TLS.
-Data at rest in Supabase is encrypted at the storage level. Your TMDB access token
-is stored in the device's hardware-backed secure enclave where supported.
-
-Row-Level Security policies on our database ensure that each user can only access
-their own data. Supabase authentication tokens are short-lived and refreshed
-automatically.
-
----
+If you are in a place with data protection law such as the EU, the UK or California, the rights it gives you (to access, correct, delete, port, object, or complain to an authority) apply in the same way, and the tools above are how you exercise them for data on your device. For anything else, contact support@ajwadtahmid.com and you will get a reply within 30 days.
 
 ## Children
 
-This app is not directed at children under the age of 13 and does not knowingly
-collect data from children. The app content (movies and TV shows) may include
-titles rated for mature audiences.
+CinemaSync is not directed at children under 13 and does not knowingly collect data from anyone. It shows information about films and shows, some of which are rated for mature audiences.
 
----
+## Changes to this policy
 
-## Changes to This Policy
+If the app starts to send anything new off your device, this policy will be updated first and the app will tell you before you use the feature. The "Last updated" date above changes with every revision, and earlier versions are kept in the project's history.
 
-If this policy changes materially, the "Last updated" date at the top will be updated.
-For significant changes, we will make reasonable efforts to notify users in-app.
-Continued use of the app after changes constitutes acceptance of the updated policy.
+## Credits
 
----
+This product uses the TMDB API but is not endorsed or certified by TMDB. Streaming availability data is provided by JustWatch through TMDB.
 
 ## Contact
 
-For any privacy-related questions or requests:
-
-**Email:** support@ajwadtahmid.com  
-**Privacy policies index:** https://ajwadtahmid.github.io/privacy-policies/
+**Email:** support@ajwadtahmid.com
