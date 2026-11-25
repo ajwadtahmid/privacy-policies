@@ -1,3 +1,13 @@
+---
+title: "Privacy Policy — BacklogForge"
+description: "Privacy policy for BacklogForge."
+policy: true
+app: "BacklogForge"
+summary: "Video game backlog tracking with Steam integration"
+platforms: "Android · iOS · Desktop"
+updated: "November 24, 2026"
+---
+
 # Privacy Policy — BacklogForge
 
 | | |

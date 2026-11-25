@@ -1,3 +1,13 @@
+---
+title: "Privacy Policy — Apexlytics"
+description: "Privacy policy for Apexlytics."
+policy: true
+app: "Apexlytics"
+summary: "Apex Legends map rotation and rank tracking"
+platforms: "Android · iOS · Desktop"
+updated: "October 18, 2026"
+---
+
 # Privacy Policy — Apexlytics
 
 | | |

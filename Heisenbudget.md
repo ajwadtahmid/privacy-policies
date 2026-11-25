@@ -1,3 +1,13 @@
+---
+title: "Privacy Policy — Heisenbudget"
+description: "Privacy policy for Heisenbudget."
+policy: true
+app: "Heisenbudget"
+summary: "Offline personal expense and income tracker"
+platforms: "Android · iOS"
+updated: "November 4, 2026"
+---
+
 # Privacy Policy — Heisenbudget
 
 | | |

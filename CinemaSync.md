@@ -1,3 +1,13 @@
+---
+title: "Privacy Policy — CinemaSync"
+description: "Privacy policy for CinemaSync."
+policy: true
+app: "CinemaSync"
+summary: "Movie and TV show tracking, stored on your device"
+platforms: "Android · iOS"
+updated: "November 17, 2026"
+---
+
 # CinemaSync Privacy Policy
 
 | | |
