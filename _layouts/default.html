@@ -1,21 +1,62 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en' }}" data-theme="dark">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
+    <script>
+      /* Runs before first paint so there is no flash. Dark is the default. */
+      (function () {
+        var t = 'dark';
+        try { t = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
 
 {% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236d5efc'/%3E%3Cpath d='M16 6l8 3v6c0 5-3.4 8.7-8 11-4.6-2.3-8-6-8-11V9z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M12.5 16l2.5 2.5 4.5-5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
   </head>
   <body>
-    <div class="container-lg px-3 my-5 markdown-body">
-      {% if site.title and site.title != page.title %}
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" width="26" height="26">
+            <path d="M16 3l11 4v8c0 7-4.7 11.6-11 14C9.700 26.600 5 22 5 15V7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M11 15.500l3.500 3.500 6.500-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>{{ site.title }}</span>
+        </a>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.900 4.900l1.400 1.400M17.700 17.700l1.400 1.400M2 12h2M20 12h2M4.900 19.100l1.400-1.400M17.700 6.300l1.400-1.400" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M21 12.800A9 9 0 1111.200 3a7 7 0 009.800 9.800z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main" class="wrap {% if page.url == '/' %}home{% else %}policy{% endif %}">
+      {% if page.url != '/' %}
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">&larr; All policies</a></nav>
       {% endif %}
 
-      {{ content }}
-    </div>
+      <div class="layout">
+        <article class="content" id="content">
+          {{ content }}
+        </article>
+        <aside class="toc" id="toc" aria-label="On this page" hidden></aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Questions? <a href="mailto:support@ajwadtahmid.com">support@ajwadtahmid.com</a></p>
+        <p class="muted">Policies for apps by Ajwad Tahmid. This site loads no fonts, analytics or trackers.</p>
+      </div>
+    </footer>
+
+    <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
   </body>
 </html>

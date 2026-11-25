@@ -6,6 +6,6 @@ Collection of privacy policies for apps developed by Ajwad Tahmid.
 
 - [Apexlytics](./Apexlytics.md) — Apex Legends map rotation and rank tracking
 - [BacklogForge](./BacklogForge.md) — Video game backlog tracking with Steam integration
-- [CinemaSync](./CinemaSync.md) — Movie and TV show tracking with buddy feature
+- [CinemaSync](./CinemaSync.md) — Movie and TV show tracking, stored on your device
 - [Crier Plus](./Crier-Plus.md) — iOS reminder app with text-to-speech
 - [Heisenbudget](./Heisenbudget.md) — Offline personal expense and income tracker

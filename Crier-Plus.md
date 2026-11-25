@@ -1,3 +1,13 @@
+---
+title: "Privacy Policy — Crier Plus"
+description: "Privacy policy for Crier Plus."
+policy: true
+app: "Crier Plus"
+summary: "iOS reminder app with text-to-speech"
+platforms: "iOS"
+updated: "June 20, 2026"
+---
+
 # Privacy Policy — Crier Plus
 
 | | |
